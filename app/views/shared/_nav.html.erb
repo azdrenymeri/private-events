@@ -1,0 +1,8 @@
+<nav>
+<% if current_user %>
+    <p> Wellcome <strong><%= current_user.name %> </strong> </p>
+    <%= link_to 'logout',logout_path,method:"post" %>
+<% else %>
+     <p> Please <%= link_to 'login',login_path %> - <%= link_to 'signup',signup_path %>  </p>
+<% end %>
+</nav>
