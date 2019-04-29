@@ -1,0 +1,10 @@
+<h1>New User</h1>
+<%= form_tag(action:"create",method:"post") do %>
+  <%= label_tag("user name:") %>
+  <%= text_field_tag(:user_name) %>
+  <br/><br/>
+    <%= label_tag("Age") %>
+  <%= text_field_tag(:user_age) %>
+  <br/><br/>
+  <%= submit_tag("Search") %>
+<% end %>
