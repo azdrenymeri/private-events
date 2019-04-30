@@ -12,4 +12,6 @@ Rails.application.routes.draw do
 
   resources :user, only:[:new,:create,:show]
   resources :session
+  resources :events
+  resources :attendance
 end

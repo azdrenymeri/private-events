@@ -1,0 +1,31 @@
+<h1> <%= @event.title%> </h1>
+<p> Info: <%= @event.info %>  <p>
+<p>Date: <%= @event.date %> </p>
+<p> Created by: <%= @event.creator.name%></p>
+
+<% if current_user.id == @event.creator.id %>
+    <p> You can Invite users </p>
+    
+<% else %>
+   
+    <% if Attendance.where(attendee_id:current_user.id) == nil %>
+     <p> You Can Attend this event </p>
+    <%= form_for @attendance,method:"POST", url:{controller:"attendance",action:"create"} do |f|%>
+        <%= f.hidden_field :attendee_id, value: current_user.id %>
+        <%= f.hidden_field :attended_event_id, value: @event.id%>
+        <%= f.submit "Attend This Event"%>
+    <% end %>
+    <% end %>
+<% end %>
+<hr/>
+<p>Attending this event: </p>
+<% if @event.attendees.any? %>
+    <% @event.attendees.each do |attendee| %>
+        <ul>
+            <li> <%= attendee.name%> </li>
+        </ul>
+    <% end %>
+<% else %>
+<p> There are no attendees on this event </p>
+<% end %>
+
