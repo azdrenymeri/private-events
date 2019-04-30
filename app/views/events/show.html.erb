@@ -5,10 +5,16 @@
 
 <% if current_user.id == @event.creator.id %>
     <p> You can Invite users </p>
-    
+    <%= form_for @attendance,method:"POST", url:{controller:"attendance",action:"create"} do |f|%>
+
+        <%= f.select(:attendee_id, options_for_select(User.all.collect{|u| [u.name,u.id]}), prompt: "Please Select") %>
+
+        <%= f.hidden_field :attended_event_id, value: @event.id%>
+        <%= f.submit "Add"%>
+    <% end %>
 <% else %>
    
-    <% if Attendance.where(attendee_id:current_user.id) == nil %>
+    <% if !@event.attendees.exists?(current_user.id) %>
      <p> You Can Attend this event </p>
     <%= form_for @attendance,method:"POST", url:{controller:"attendance",action:"create"} do |f|%>
         <%= f.hidden_field :attendee_id, value: current_user.id %>
