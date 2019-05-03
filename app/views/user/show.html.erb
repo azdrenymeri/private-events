@@ -1,4 +1,6 @@
-<h1> <%= current_user.name%>'s Events </h1>
+<h1> <%= current_user.name%>'s Profile </h1>
+<h2> Age: <%= current_user.age%> </h2>
+<h3> Events created by you </h3>
 <% @events.each do |event|%>
 <ul>
     <li> <%= link_to event.title , event_path(event) %> <%= event.info %> - <%= event.date%> </li>

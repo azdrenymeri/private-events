@@ -1,7 +1,7 @@
 <h1> <%= @event.title%> </h1>
-<p> Info: <%= @event.info %>  <p>
-<p>Date: <%= @event.date %> </p>
-<p> Created by: <%= @event.creator.name%></p>
+<p> <strong>Info:</strong> <%= @event.info %>  <p>
+<p><strong>Date:</strong> <%= @event.date %> </p>
+<p> <strong>Created by:</strong> <%= @event.creator.name%></p>
 
 <% if current_user.id == @event.creator.id %>
     <p> You can Invite users </p>

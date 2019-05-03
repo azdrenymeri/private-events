@@ -4,7 +4,7 @@
   <h2> Previous Events </h2>
   <ol>
     <% @previous_events.each do |previous_event| %>
-    <% if previous_event.attendees.exists?(current_user.id) %>
+    <% if previous_event.attendees.exists?(current_user.id) || previous_event.creator.id == current_user.id %>
       <li><%= link_to previous_event.title, previous_event %>, date: <%= previous_event.date %></li>
     <% end %>
     <% end %>
@@ -15,7 +15,7 @@
   <h2> Upcoming Events </h2>
   <ol>
     <% @upcoming_events.each do |upcoming_event| %>
-    <% if upcoming_event.attendees.exists?(current_user.id) %>
+    <% if upcoming_event.attendees.exists?(current_user.id) || upcoming_event.creator.id == current_user.id %>
       <li><%= link_to upcoming_event.title, upcoming_event%>, date: <%= upcoming_event.date %></li>
     <% end %>
     <% end %>
