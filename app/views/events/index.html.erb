@@ -1,7 +1,18 @@
 <h1> All events </h1>
-<% @events.each do |event|%>
-    <ul>
-    <li> <%= link_to event.title, event_path(event) %> - <%= event.date%> 
-    - By: <%= event.creator.name%>  </li>
-    </ul>
+<% if @previous_events.any? %>
+  <h2> Previous Events </h2>
+  <ol>
+    <% @previous_events.each do |previous_event| %>
+      <li><%= link_to previous_event.title, previous_event %>, date: <%= previous_event.date %></li>
+    <% end %>
+  </ol>
+<% end %>
+
+<% if @upcoming_events.any? %>
+  <h2> Upcoming Events </h2>
+  <ol>
+    <% @upcoming_events.each do |upcoming_event| %>
+      <li><%= link_to upcoming_event.title, upcoming_event%>, date: <%= upcoming_event.date %></li>
+    <% end %>
+  </ol>
 <% end %>

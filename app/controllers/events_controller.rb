@@ -4,6 +4,8 @@ class EventsController < ApplicationController
     def index
         if current_user 
         @events = Event.all
+        @previous_events = Event.previous_events
+        @upcoming_events = Event.upcoming_events
         else
             render login_path
         end
@@ -40,5 +42,10 @@ class EventsController < ApplicationController
     private
     def event_params
     params.require(:event).permit(:title,:info,:date)
+    end
+
+    def check_time
+        Event:upcoming_events
+        Event::previus_events
     end
 end

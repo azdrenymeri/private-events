@@ -6,6 +6,6 @@ class Event < ApplicationRecord
 
 
     scope :upcoming_events, ->{where("date > ?",Time.now)}
-    scope :previus_events,->{where("date < ?",Time.now)}
+    scope :previous_events,->{where("date < ?",Time.now)}
 
 end
