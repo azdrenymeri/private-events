@@ -13,3 +13,16 @@
  *= require_tree .
  *= require_self
  */
+
+
+.success{
+    list-style-type: none;
+    color: green;
+    margin: 10px;
+}
+
+.danger {
+    list-style: none;
+    color: red;
+    margin: 10px;
+}

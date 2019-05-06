@@ -3,9 +3,8 @@ class EventsController < ApplicationController
 
     def index
         if current_user 
-        @events = Event.all
-        @previous_events = Event.previous_events
-        @upcoming_events = Event.upcoming_events
+            @events = Event.all
+           
         else
             render login_path
         end

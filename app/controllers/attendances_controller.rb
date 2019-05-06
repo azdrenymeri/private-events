@@ -1,12 +1,14 @@
-class AttendanceController < ApplicationController
+class AttendancesController < ApplicationController
 
     def create
         if current_user
             @attendance = Attendance.new(attendance_params)
 
             if @attendance.save
-                redirect_to root_url
+                flash[:success] = "Now You are atteding this event"
+                redirect_to event_path(@attendance.attended_event_id)
             else
+                flash[:danger] = "Something went wrong. Please try again later"
                 redirect_to event_path(@attendance.attended_event_id)
             end
 

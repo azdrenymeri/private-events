@@ -3,15 +3,14 @@ Rails.application.routes.draw do
 
   root to:"main#index"
   
-  get "/login",controller:"session",action:"new"
-  post "/logout",controller:"session",action:"destroy"
+  get "/login",controller:"sessions",action:"new"
+  post "/logout",controller:"sessions",action:"destroy"
   
-  get "/signup",controller:"user",action:"new"
+  get "/signup",controller:"users",action:"new"
   
  
-
-  resources :user, only:[:new,:create,:show]
-  resources :session
+  resources :users, only:[:new,:create,:show]
+  resources :sessions
   resources :events
-  resources :attendance
+  resources :attendances
 end
