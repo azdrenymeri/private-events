@@ -1,5 +1,6 @@
-<%= form_tag(action:"create",method:"post") do %>
-    <%= label_tag("User:") %>
-  <%= text_field_tag(:user_name) %>
-  <%= submit_tag("Login") %>
+
+<%= form_for @user,:url => { :controller => "sessions", :action => "create" }, :html => {:method => :post} do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.submit "Login" %>
 <% end %>

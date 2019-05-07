@@ -1,6 +1,6 @@
 <nav>
 <% if current_user %>
-    <p> Wellcome <strong><%=link_to current_user.name ,user_path(current_user) %> </strong> -
+    <p> Wellcome <%= link_to current_user.name , user_path(current_user.id) %> -
      <%= link_to 'logout',logout_path,method:"post" %> - 
      <%= link_to "Create An Event", new_event_path %> - 
     <%= link_to "All events", events_path %>

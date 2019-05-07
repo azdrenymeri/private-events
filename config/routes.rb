@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   
  
   resources :users, only:[:new,:create,:show]
-  resources :sessions
+  resources :sessions , except:[:edit,:index]
   resources :events
   resources :attendances
+  
 end
