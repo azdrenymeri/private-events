@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-    require 'byebug'
+    
     
     def new
         if current_user == nil
@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
             flash[:success] = "Wellcome"
             redirect_to events_path
         else
-            flash[:danger] = "Wrong username"
+            flash[:danger] = "Error"
             redirect_to login_path
         end
     end

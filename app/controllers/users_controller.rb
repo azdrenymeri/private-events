@@ -16,7 +16,7 @@ class UsersController < ApplicationController
         session[:user_id] = @user.id
         redirect_to root_url
        else
-        flash[:danger] = "Something went wrong. Please try again"
+        flash[:danger] = "Error"
         render "new"
        end
     end

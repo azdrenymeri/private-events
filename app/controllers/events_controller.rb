@@ -4,9 +4,8 @@ class EventsController < ApplicationController
     def index
         if current_user 
             @events = Event.all
-           
         else
-            render login_path
+            redirect_to login_path
         end
     end
 
