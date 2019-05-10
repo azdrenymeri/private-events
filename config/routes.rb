@@ -1,15 +1,16 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  root to:"main#index"
+  root to:"sessions#new"
   
-  get "/login",controller:"session",action:"new"
-  post "/logout",controller:"session",action:"destroy"
-  
-  get "/signup",controller:"user",action:"new"
-  
- 
+  get "/login",controller:"sessions",action:"new"
+  post "/logout",controller:"sessions",action:"destroy"
+  get "/signup",controller:"users",action:"new"
 
-  resources :user, only:[:new,:create,:show]
-  resources :session
+ 
+  resources :users, only:[:new,:create,:show]
+  resources :sessions , except:[:edit,:index]
+  resources :events , only:[:index,:new,:show,:create]
+  resources :attendances, only:[:create]
+  
 end

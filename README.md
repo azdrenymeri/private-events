@@ -1,24 +1,11 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Private events 
+## Instructions:
 
-Things you may want to cover:
+* Log in/Sign up to access your profile
 
-* Ruby version
+* Create event and invite people in!
 
-* System dependencies
+* Check all events you are invited to!
 
-* Configuration
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

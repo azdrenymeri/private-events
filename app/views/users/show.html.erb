@@ -1,0 +1,26 @@
+<h1> <%= current_user.name%>'s Profile </h1>
+<h2> Age: <%= current_user.age%> </h2>
+<hr>
+<h2> Events Created By Me: </h3>
+<% if User.upcoming_events(current_user.id).any? %>
+<h3> My Upcoming Events </h3>
+    <% User.upcoming_events(current_user.id).each do |event| %>
+        <ul>
+        <li> <%= link_to event.title, event_path(event) %> - <%= event.info %> </li>
+        </ul> 
+    <% end %>
+
+    <% else %>
+    <p> No upcoming events </p
+<% end %>
+
+<% if User.previous_events(current_user.id).any? %> 
+<h3> My previous events </h3>
+    <% User.previous_events(current_user.id).each do |event| %>
+        <ul>
+            <li> <%= link_to event.title, event_path(event.id) %> - <%= event.info %>  - Created By: <%= event.creator.name %> </li>
+        </ul
+        <% end %>
+    <% else %>
+    <p> No previous events </p>
+<% end %>

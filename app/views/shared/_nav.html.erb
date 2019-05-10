@@ -1,7 +1,11 @@
 <nav>
 <% if current_user %>
-    <p> Wellcome <strong><%= current_user.name %> </strong> </p>
-    <%= link_to 'logout',logout_path,method:"post" %>
+    <p> Wellcome <%= link_to current_user.name , user_path(current_user.id) %> -
+     <%= link_to 'logout',logout_path,method:"post" %> - 
+     <%= link_to "Create An Event", new_event_path %> - 
+    <%= link_to "All events", events_path %>
+    </p>
+   
 <% else %>
      <p> Please <%= link_to 'login',login_path %> - <%= link_to 'signup',signup_path %>  </p>
 <% end %>
