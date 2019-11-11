@@ -7,6 +7,10 @@
     </p>
    
 <% else %>
-     <p> Please <%= link_to 'login',login_path %> - <%= link_to 'signup',signup_path %>  </p>
+    <div class="center">
+    <h2> Greetings and welcome to Party Planner!</h2>
+    <h3>Sign up, create parties and invite your friends!</h3>
+     <p><%= link_to 'login',login_path %> - <%= link_to 'signup',signup_path %>  </p>
+     </div>
 <% end %>
 </nav>
