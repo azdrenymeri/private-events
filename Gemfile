@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.3'
 gem 'jquery-rails'
-gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap-sass', '~> 3.4.1'
 gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
