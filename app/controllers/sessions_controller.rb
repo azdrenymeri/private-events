@@ -12,16 +12,22 @@ class SessionsController < ApplicationController
     def create
         
         @user = User.find_by_name(params[:user][:name])
-        
-        
-        if @user 
-            session[:user_id] = @user.id
-            flash[:success] = "Wellcome"
-            redirect_to events_path
+        if @user
+            password = params[:user][:password]
+            
+            if @user.password == password
+                session[:user_id] = @user.id
+                flash[:success] = "Wellcome"
+                redirect_to events_path
+            else
+                flash[:danger] = "Error"
+                redirect_to login_path
+            end
         else
             flash[:danger] = "Error"
             redirect_to login_path
         end
+        
     end
 
     def destroy

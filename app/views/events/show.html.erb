@@ -1,16 +1,17 @@
 <h1> <%= @event.title%> </h1>
-<p> <strong>Info:</strong> <%= @event.info %>  <p>
-<p><strong>Date:</strong> <%= @event.date %> </p>
-<p> <strong>Created by:</strong> <%= @event.creator.name%></p>
+<p class="label label-default"> <strong>Info:</strong> <%= @event.info %>  </p><br>
+<p class="label label-default"><strong>Date:</strong> <%= @event.date %> </p><br>
+<p class="label label-default"> <strong>Created by:</strong> <%= @event.creator.name%></p><br>
 
 <% if current_user.id == @event.creator.id %>
+<br>
     <p> You can Invite users </p>
     <%= form_for @attendance,method:"POST", url:{controller:"attendances",action:"create"} do |f|%>
 
-        <%= f.select(:attendee_id, options_for_select(User.all.collect{|u| [u.name,u.id]}), prompt: "Please Select") %>
+        <%= f.select(:attendee_id, options_for_select(User.all.collect{|u| [u.name,u.id]}), prompt: "Please Select" ) %>
 
-        <%= f.hidden_field :attended_event_id, value: @event.id%>
-        <%= f.submit "Add"%>
+        <%= f.hidden_field :attended_event_id, value: @event.id %><br> <br>
+        <%= f.submit "Invite User" , :class =>"btn btn-primary btn-md"%> 
     <% end %>
 <% else %>
 <p> You Can Attend this event </p>
@@ -22,12 +23,11 @@
 <% end %>
 
 <hr/>
-<p>Attending this event: </p>
+<p class="blockquote">Attending this event: </p>
 <% if @event.attendees.any? %>
     <% @event.attendees.each do |attendee| %>
-        <ul>
-            <li> <%= attendee.name%> </li>
-        </ul>
+    <li class="mb-0"><%= attendee.name%></li> <br>
+        
     <% end %>
 <% else %>
 <p> There are no attendees on this event </p>
