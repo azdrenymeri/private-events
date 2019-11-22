@@ -1,16 +1,18 @@
-<nav>
+
 <% if current_user %>
-    <p> Wellcome <%= link_to current_user.name , user_path(current_user.id) %> -
-     <%= link_to 'logout',logout_path,method:"post" %> - 
-     <%= link_to "Create An Event", new_event_path %> - 
-    <%= link_to "All events", events_path %>
-    </p>
-   
+<nav class="navbar navbar-inverse">
+    <%= link_to  current_user.name , user_path(current_user.id), :class => "navbar-brand"%>
+    <%= link_to "All events", events_path , :class => "navbar-brand"%>
+    <%= link_to "Create An Event", new_event_path , :class => "navbar-brand"%>
+    <%= link_to 'Sign Off',logout_path,method:"post" , :class => "navbar-brand"%>
+    
+   </nav>
 <% else %>
-    <div class="center">
+<nav class="navbar navbar-inverse">
+<%= link_to 'Log in',login_path , :class =>"navbar-brand"%>
+<%= link_to 'Sign up',signup_path, :class =>"navbar-brand" %>
+</nav>
     <h2> Greetings and welcome to Party Planner!</h2>
     <h3>Sign up, create parties and invite your friends!</h3>
-     <p><%= link_to 'login',login_path %> - <%= link_to 'signup',signup_path %>  </p>
-     </div>
 <% end %>
-</nav>
+

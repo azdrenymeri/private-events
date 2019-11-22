@@ -1,7 +1,10 @@
 <h1> All events </h1>
 <% @events.each do |event| %>
+<br>
   <ul>
+  
   <li> <strong> <%= link_to event.title, event_path(event.id) %> </strong>- <%= event.info %> - Created By:  <%= event.creator.name %> </li>
+  <br>
   </ul>
   <% end %>
 
